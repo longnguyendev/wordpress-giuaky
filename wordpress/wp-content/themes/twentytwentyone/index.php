@@ -57,7 +57,6 @@ get_header(); ?>
 			$has_sidebar_2 = is_active_sidebar('sidebar-3');
 
 			if ($has_sidebar_2) { ?>
-
 				<div class="footer-widgets column-two grid-item">
 					<?php dynamic_sidebar(index: 'sidebar-3'); ?>
 				</div>

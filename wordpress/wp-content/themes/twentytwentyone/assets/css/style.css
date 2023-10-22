@@ -1,0 +1,22 @@
+.fn.bg-light.mr-4.p-2::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  left: 78px;
+  border-top: 10px solid transparent;
+  border-right: 10px solid #f8f9fa;
+  border-bottom: 10px solid transparent;
+  z-index: 999;
+}
+.fn.bg-light.mr-4.p-2::before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  left: 76px;
+  border-top: 10px solid transparent;
+  border-right: 10px solid #eee;
+  border-bottom: 10px solid transparent;
+  z-index: 998;
+}

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Comment API: Walker_Comment class
  *
@@ -14,7 +15,8 @@
  *
  * @see Walker
  */
-class Walker_Comment extends Walker {
+class Walker_Comment extends Walker
+{
 
 	/**
 	 * What the class handles.
@@ -52,10 +54,11 @@ class Walker_Comment extends Walker {
 	 * @param int    $depth  Optional. Depth of the current comment. Default 0.
 	 * @param array  $args   Optional. Uses 'style' argument for type of HTML list. Default empty array.
 	 */
-	public function start_lvl( &$output, $depth = 0, $args = array() ) {
+	public function start_lvl(&$output, $depth = 0, $args = array())
+	{
 		$GLOBALS['comment_depth'] = $depth + 1;
 
-		switch ( $args['style'] ) {
+		switch ($args['style']) {
 			case 'div':
 				break;
 			case 'ol':
@@ -81,10 +84,11 @@ class Walker_Comment extends Walker {
 	 * @param array  $args   Optional. Will only append content if style argument value is 'ol' or 'ul'.
 	 *                       Default empty array.
 	 */
-	public function end_lvl( &$output, $depth = 0, $args = array() ) {
+	public function end_lvl(&$output, $depth = 0, $args = array())
+	{
 		$GLOBALS['comment_depth'] = $depth + 1;
 
-		switch ( $args['style'] ) {
+		switch ($args['style']) {
 			case 'div':
 				break;
 			case 'ol':
@@ -128,29 +132,29 @@ class Walker_Comment extends Walker {
 	 * @param array      $args              An array of arguments.
 	 * @param string     $output            Used to append additional content. Passed by reference.
 	 */
-	public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
-		if ( ! $element ) {
+	public function display_element($element, &$children_elements, $max_depth, $depth, $args, &$output)
+	{
+		if (!$element) {
 			return;
 		}
 
 		$id_field = $this->db_fields['id'];
 		$id       = $element->$id_field;
 
-		parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+		parent::display_element($element, $children_elements, $max_depth, $depth, $args, $output);
 
 		/*
 		 * If at the max depth, and the current element still has children, loop over those
 		 * and display them at this level. This is to prevent them being orphaned to the end
 		 * of the list.
 		 */
-		if ( $max_depth <= $depth + 1 && isset( $children_elements[ $id ] ) ) {
-			foreach ( $children_elements[ $id ] as $child ) {
-				$this->display_element( $child, $children_elements, $max_depth, $depth, $args, $output );
+		if ($max_depth <= $depth + 1 && isset($children_elements[$id])) {
+			foreach ($children_elements[$id] as $child) {
+				$this->display_element($child, $children_elements, $max_depth, $depth, $args, $output);
 			}
 
-			unset( $children_elements[ $id ] );
+			unset($children_elements[$id]);
 		}
-
 	}
 
 	/**
@@ -171,7 +175,8 @@ class Walker_Comment extends Walker {
 	 * @param array      $args              Optional. An array of arguments. Default empty array.
 	 * @param int        $current_object_id Optional. ID of the current comment. Default 0.
 	 */
-	public function start_el( &$output, $data_object, $depth = 0, $args = array(), $current_object_id = 0 ) {
+	public function start_el(&$output, $data_object, $depth = 0, $args = array(), $current_object_id = 0)
+	{
 		// Restores the more descriptive, specific name for use within this method.
 		$comment = $data_object;
 
@@ -179,33 +184,33 @@ class Walker_Comment extends Walker {
 		$GLOBALS['comment_depth'] = $depth;
 		$GLOBALS['comment']       = $comment;
 
-		if ( ! empty( $args['callback'] ) ) {
+		if (!empty($args['callback'])) {
 			ob_start();
-			call_user_func( $args['callback'], $comment, $args, $depth );
+			call_user_func($args['callback'], $comment, $args, $depth);
 			$output .= ob_get_clean();
 			return;
 		}
 
-		if ( 'comment' === $comment->comment_type ) {
-			add_filter( 'comment_text', array( $this, 'filter_comment_text' ), 40, 2 );
+		if ('comment' === $comment->comment_type) {
+			add_filter('comment_text', array($this, 'filter_comment_text'), 40, 2);
 		}
 
-		if ( ( 'pingback' === $comment->comment_type || 'trackback' === $comment->comment_type ) && $args['short_ping'] ) {
+		if (('pingback' === $comment->comment_type || 'trackback' === $comment->comment_type) && $args['short_ping']) {
 			ob_start();
-			$this->ping( $comment, $depth, $args );
+			$this->ping($comment, $depth, $args);
 			$output .= ob_get_clean();
-		} elseif ( 'html5' === $args['format'] ) {
+		} elseif ('html5' === $args['format']) {
 			ob_start();
-			$this->html5_comment( $comment, $depth, $args );
+			$this->html5_comment($comment, $depth, $args);
 			$output .= ob_get_clean();
 		} else {
 			ob_start();
-			$this->comment( $comment, $depth, $args );
+			$this->comment($comment, $depth, $args);
 			$output .= ob_get_clean();
 		}
 
-		if ( 'comment' === $comment->comment_type ) {
-			remove_filter( 'comment_text', array( $this, 'filter_comment_text' ), 40 );
+		if ('comment' === $comment->comment_type) {
+			remove_filter('comment_text', array($this, 'filter_comment_text'), 40);
 		}
 	}
 
@@ -223,8 +228,9 @@ class Walker_Comment extends Walker {
 	 * @param int        $depth       Optional. Depth of the current comment. Default 0.
 	 * @param array      $args        Optional. An array of arguments. Default empty array.
 	 */
-	public function end_el( &$output, $data_object, $depth = 0, $args = array() ) {
-		if ( ! empty( $args['end-callback'] ) ) {
+	public function end_el(&$output, $data_object, $depth = 0, $args = array())
+	{
+		if (!empty($args['end-callback'])) {
 			ob_start();
 			call_user_func(
 				$args['end-callback'],
@@ -235,7 +241,7 @@ class Walker_Comment extends Walker {
 			$output .= ob_get_clean();
 			return;
 		}
-		if ( 'div' === $args['style'] ) {
+		if ('div' === $args['style']) {
 			$output .= "</div><!-- #comment-## -->\n";
 		} else {
 			$output .= "</li><!-- #comment-## -->\n";
@@ -253,12 +259,13 @@ class Walker_Comment extends Walker {
 	 * @param int        $depth   Depth of the current comment.
 	 * @param array      $args    An array of arguments.
 	 */
-	protected function ping( $comment, $depth, $args ) {
-		$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
-		?>
-		<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( '', $comment ); ?>>
+	protected function ping($comment, $depth, $args)
+	{
+		$tag = ('div' === $args['style']) ? 'div' : 'li';
+?>
+		<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class('', $comment); ?>>
 			<div class="comment-body">
-				<?php _e( 'Pingback:' ); ?> <?php comment_author_link( $comment ); ?> <?php edit_comment_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
+				<?php _e('Pingback:'); ?> <?php comment_author_link($comment); ?> <?php edit_comment_link(__('Edit'), '<span class="edit-link">', '</span>'); ?>
 			</div>
 		<?php
 	}
@@ -275,12 +282,13 @@ class Walker_Comment extends Walker {
 	 * @param WP_Comment|null $comment      The comment object. Null if not found.
 	 * @return string Filtered text of the current comment.
 	 */
-	public function filter_comment_text( $comment_text, $comment ) {
+	public function filter_comment_text($comment_text, $comment)
+	{
 		$commenter          = wp_get_current_commenter();
-		$show_pending_links = ! empty( $commenter['comment_author'] );
+		$show_pending_links = !empty($commenter['comment_author']);
 
-		if ( $comment && '0' == $comment->comment_approved && ! $show_pending_links ) {
-			$comment_text = wp_kses( $comment_text, array() );
+		if ($comment && '0' == $comment->comment_approved && !$show_pending_links) {
+			$comment_text = wp_kses($comment_text, array());
 		}
 
 		return $comment_text;
@@ -297,8 +305,9 @@ class Walker_Comment extends Walker {
 	 * @param int        $depth   Depth of the current comment.
 	 * @param array      $args    An array of arguments.
 	 */
-	protected function comment( $comment, $depth, $args ) {
-		if ( 'div' === $args['style'] ) {
+	protected function comment($comment, $depth, $args)
+	{
+		if ('div' === $args['style']) {
 			$tag       = 'div';
 			$add_below = 'comment';
 		} else {
@@ -307,176 +316,80 @@ class Walker_Comment extends Walker {
 		}
 
 		$commenter          = wp_get_current_commenter();
-		$show_pending_links = isset( $commenter['comment_author'] ) && $commenter['comment_author'];
+		$show_pending_links = isset($commenter['comment_author']) && $commenter['comment_author'];
 
-		if ( $commenter['comment_author_email'] ) {
-			$moderation_note = __( 'Your comment is awaiting moderation.' );
+		if ($commenter['comment_author_email']) {
+			$moderation_note = __('Your comment is awaiting moderation.');
 		} else {
-			$moderation_note = __( 'Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved.' );
+			$moderation_note = __('Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved.');
 		}
 		?>
-		<<?php echo $tag; ?> <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?> id="comment-<?php comment_ID(); ?>">
-		<?php if ( 'div' !== $args['style'] ) : ?>
-		<div id="div-comment-<?php comment_ID(); ?>" class="comment-body">
-		<?php endif; ?>
-		<div class="comment-author vcard">
-			<?php
-			if ( 0 != $args['avatar_size'] ) {
-				echo get_avatar( $comment, $args['avatar_size'] );
-			}
-			?>
-			<?php
-			$comment_author = get_comment_author_link( $comment );
-
-			if ( '0' == $comment->comment_approved && ! $show_pending_links ) {
-				$comment_author = get_comment_author( $comment );
-			}
-
-			printf(
-				/* translators: %s: Comment author link. */
-				__( '%s <span class="says">says:</span>' ),
-				sprintf( '<cite class="fn">%s</cite>', $comment_author )
-			);
-			?>
-		</div>
-		<?php if ( '0' == $comment->comment_approved ) : ?>
-		<em class="comment-awaiting-moderation"><?php echo $moderation_note; ?></em>
-		<br />
-		<?php endif; ?>
-
-		<div class="comment-meta commentmetadata">
-			<?php
-			printf(
-				'<a href="%s">%s</a>',
-				esc_url( get_comment_link( $comment, $args ) ),
-				sprintf(
-					/* translators: 1: Comment date, 2: Comment time. */
-					__( '%1$s at %2$s' ),
-					get_comment_date( '', $comment ),
-					get_comment_time()
-				)
-			);
-
-			edit_comment_link( __( '(Edit)' ), ' &nbsp;&nbsp;', '' );
-			?>
-		</div>
-
-		<?php
-		comment_text(
-			$comment,
-			array_merge(
-				$args,
-				array(
-					'add_below' => $add_below,
-					'depth'     => $depth,
-					'max_depth' => $args['max_depth'],
-				)
-			)
-		);
-		?>
-
-		<?php
-		comment_reply_link(
-			array_merge(
-				$args,
-				array(
-					'add_below' => $add_below,
-					'depth'     => $depth,
-					'max_depth' => $args['max_depth'],
-					'before'    => '<div class="reply">',
-					'after'     => '</div>',
-				)
-			)
-		);
-		?>
-
-		<?php if ( 'div' !== $args['style'] ) : ?>
-		</div>
-		<?php endif; ?>
-		<?php
-	}
-
-	/**
-	 * Outputs a comment in the HTML5 format.
-	 *
-	 * @since 3.6.0
-	 *
-	 * @see wp_list_comments()
-	 *
-	 * @param WP_Comment $comment Comment to display.
-	 * @param int        $depth   Depth of the current comment.
-	 * @param array      $args    An array of arguments.
-	 */
-	protected function html5_comment( $comment, $depth, $args ) {
-		$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
-
-		$commenter          = wp_get_current_commenter();
-		$show_pending_links = ! empty( $commenter['comment_author'] );
-
-		if ( $commenter['comment_author_email'] ) {
-			$moderation_note = __( 'Your comment is awaiting moderation.' );
-		} else {
-			$moderation_note = __( 'Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved.' );
-		}
-		?>
-		<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
-			<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
-				<footer class="comment-meta">
+			<<?php echo $tag; ?> <?php comment_class($this->has_children ? 'parent' : '', $comment); ?> id="comment-<?php comment_ID(); ?>">
+				<?php if ('div' !== $args['style']) : ?>
+					<div id="div-comment-<?php comment_ID(); ?>" class="comment-body">
+					<?php endif; ?>
 					<div class="comment-author vcard">
 						<?php
-						if ( 0 != $args['avatar_size'] ) {
-							echo get_avatar( $comment, $args['avatar_size'] );
+						if (0 != $args['avatar_size']) {
+							echo get_avatar($comment, $args['avatar_size']);
 						}
 						?>
 						<?php
-						$comment_author = get_comment_author_link( $comment );
+						$comment_author = get_comment_author_link($comment);
 
-						if ( '0' == $comment->comment_approved && ! $show_pending_links ) {
-							$comment_author = get_comment_author( $comment );
+						if ('0' == $comment->comment_approved && !$show_pending_links) {
+							$comment_author = get_comment_author($comment);
 						}
 
 						printf(
 							/* translators: %s: Comment author link. */
-							__( '%s <span class="says">says:</span>' ),
-							sprintf( '<b class="fn">%s</b>', $comment_author )
+							__('%s <span class="says">says:</span>'),
+							sprintf('<cite class="fn">%s</cite>', $comment_author)
 						);
 						?>
-					</div><!-- .comment-author -->
+					</div>
+					<?php if ('0' == $comment->comment_approved) : ?>
+						<em class="comment-awaiting-moderation"><?php echo $moderation_note; ?></em>
+						<br />
+					<?php endif; ?>
 
-					<div class="comment-metadata">
+					<div class="comment-meta commentmetadata">
 						<?php
 						printf(
-							'<a href="%s"><time datetime="%s">%s</time></a>',
-							esc_url( get_comment_link( $comment, $args ) ),
-							get_comment_time( 'c' ),
+							'<a href="%s">%s</a>',
+							esc_url(get_comment_link($comment, $args)),
 							sprintf(
 								/* translators: 1: Comment date, 2: Comment time. */
-								__( '%1$s at %2$s' ),
-								get_comment_date( '', $comment ),
+								__('%1$s at %2$s'),
+								get_comment_date('', $comment),
 								get_comment_time()
 							)
 						);
 
-						edit_comment_link( __( 'Edit' ), ' <span class="edit-link">', '</span>' );
+						edit_comment_link(__('(Edit)'), ' &nbsp;&nbsp;', '');
 						?>
-					</div><!-- .comment-metadata -->
+					</div>
 
-					<?php if ( '0' == $comment->comment_approved ) : ?>
-					<em class="comment-awaiting-moderation"><?php echo $moderation_note; ?></em>
-					<?php endif; ?>
-				</footer><!-- .comment-meta -->
+					<?php
+					comment_text(
+						$comment,
+						array_merge(
+							$args,
+							array(
+								'add_below' => $add_below,
+								'depth'     => $depth,
+								'max_depth' => $args['max_depth'],
+							)
+						)
+					);
+					?>
 
-				<div class="comment-content">
-					<?php comment_text(); ?>
-				</div><!-- .comment-content -->
-
-				<?php
-				if ( '1' == $comment->comment_approved || $show_pending_links ) {
+					<?php
 					comment_reply_link(
 						array_merge(
 							$args,
 							array(
-								'add_below' => 'div-comment',
+								'add_below' => $add_below,
 								'depth'     => $depth,
 								'max_depth' => $args['max_depth'],
 								'before'    => '<div class="reply">',
@@ -484,9 +397,106 @@ class Walker_Comment extends Walker {
 							)
 						)
 					);
-				}
-				?>
-			</article><!-- .comment-body -->
-		<?php
+					?>
+
+					<?php if ('div' !== $args['style']) : ?>
+					</div>
+				<?php endif; ?>
+			<?php
+		}
+
+		/**
+		 * Outputs a comment in the HTML5 format.
+		 *
+		 * @since 3.6.0
+		 *
+		 * @see wp_list_comments()
+		 *
+		 * @param WP_Comment $comment Comment to display.
+		 * @param int        $depth   Depth of the current comment.
+		 * @param array      $args    An array of arguments.
+		 */
+		protected function html5_comment($comment, $depth, $args)
+		{
+			$tag = ('div' === $args['style']) ? 'div' : 'li';
+
+			$commenter          = wp_get_current_commenter();
+			$show_pending_links = !empty($commenter['comment_author']);
+
+			if ($commenter['comment_author_email']) {
+				$moderation_note = __('Your comment is awaiting moderation.');
+			} else {
+				$moderation_note = __('Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved.');
+			}
+			?>
+				<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class($this->has_children ? 'parent' : '', $comment); ?>>
+					<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
+						<footer class="comment-meta">
+							<div class="comment-author vcard">
+								<?php
+								if (0 != $args['avatar_size']) {
+									echo get_avatar($comment, $args['avatar_size']);
+								}
+								?>
+								<?php
+								$comment_author = get_comment_author_link($comment);
+
+								if ('0' == $comment->comment_approved && !$show_pending_links) {
+									$comment_author = get_comment_author($comment);
+								}
+
+								printf(
+									/* translators: %s: Comment author link. */
+									__('%s <span class="says">says:</span>'),
+									sprintf('<p class="fn bg-light mr-4 p-2 border">%s</p>', $comment_author)
+								);
+								?>
+							</div><!-- .comment-author -->
+
+							<!-- <div class="comment-metadata">
+								<?php
+								printf(
+									'<a href="%s"><time datetime="%s">%s</time></a>',
+									esc_url(get_comment_link($comment, $args)),
+									get_comment_time('c'),
+									sprintf(
+										/* translators: 1: Comment date, 2: Comment time. */
+										__('%1$s at %2$s'),
+										get_comment_date('', $comment),
+										get_comment_time()
+									)
+								);
+
+								edit_comment_link(__('Edit'), ' <span class="edit-link">', '</span>');
+								?>
+							</div>.comment-metadata -->
+
+							<?php if ('0' == $comment->comment_approved) : ?>
+								<em class="comment-awaiting-moderation"><?php echo $moderation_note; ?></em>
+							<?php endif; ?>
+						</footer><!-- .comment-meta -->
+
+						<div class="comment-content p-2">
+							<?php comment_text(); ?>
+						</div><!-- .comment-content -->
+
+						<?php
+						if (is_user_logged_in() && '1' == $comment->comment_approved || $show_pending_links) {
+							comment_reply_link(
+								array_merge(
+									$args,
+									array(
+										'add_below' => 'div-comment',
+										'depth'     => $depth,
+										'max_depth' => $args['max_depth'],
+										'before'    => '<div class="reply">',
+										'after'     => '</div>',
+									)
+								)
+							);
+						}
+						?>
+					</article><!-- .comment-body -->
+			<?php
+		}
 	}
-}
