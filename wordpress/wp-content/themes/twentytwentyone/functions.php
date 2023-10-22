@@ -408,6 +408,66 @@ function twenty_twenty_one_widgets_init()
 		)
 
 	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__('Pages', 'twentytwentyone'),
+			'id'            => 'sidebar-4',
+			'description'   => esc_html__('Add widgets here to appear in your footer.', 'twentytwentyone'),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__('Comments Search ages', 'twentytwentyone'),
+			'id'            => 'sidebar-5',
+			'description'   => esc_html__('Add widgets here to appear in your footer.', 'twentytwentyone'),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__('Lastpost', 'twentytwentyone'),
+			'id'            => 'sidebar-6',
+			'description'   => esc_html__('Add widgets here to appear in your footer.', 'twentytwentyone'),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__('Categories', 'twentytwentyone'),
+			'id'            => 'sidebar-7',
+			'description'   => esc_html__('Add widgets here to appear in your footer.', 'twentytwentyone'),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+
+	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__('Recentpost', 'twentytwentyone'),
+			'id'            => 'sidebar-8',
+			'description'   => esc_html__('Add widgets here to appear in your footer.', 'twentytwentyone'),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+
+	);
 }
 add_action('widgets_init', 'twenty_twenty_one_widgets_init');
 
