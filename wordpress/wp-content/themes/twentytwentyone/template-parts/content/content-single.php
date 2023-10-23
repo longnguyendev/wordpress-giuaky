@@ -12,66 +12,93 @@
 
 ?>
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-2">
-			<?php
-			$has_sidebar_7 = is_active_sidebar('sidebar-7');
+    <div class="row">
+        <div class="col-2">
+            <?php
+            $has_sidebar_7 = is_active_sidebar('sidebar-7');
 
-			if ($has_sidebar_7) { ?>
+            if ($has_sidebar_7) { ?>
 
-				<div class="footer-widgets column-two grid-item">
-					<?php dynamic_sidebar(index: 'sidebar-7'); ?>
-				</div>
+                <div class="footer-widgets column-two grid-item">
+                    <?php dynamic_sidebar(index: 'sidebar-7'); ?>
+                </div>
 
-			<?php }
-			?>
+            <?php }
+            ?>
 
-		</div>
-		<div class="col-8">
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+        </div>
+        <div class="col-8">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-				<header class="entry-header alignwide">
-					<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
-					<?php twenty_twenty_one_post_thumbnail(); ?>
-				</header><!-- .entry-header -->
+            <!-- Sua module 6 -->
+            <header class="entry-header container alignwide">
+                <div class="detail">
+                    <div class=" row title">
+                        <div class="col-md-10">
+                            <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+                        </div>
+                        <div class="col-md-2">
+                            <?php 
+                                $day = get_the_date('d');
+                                $month = get_the_date('m');
+                                $year = get_the_date('y');
+                            ?>
+                            <div class="headlinesdate">
+                                <div class="headlinesdm">
+                                    <div class="headlinesday"><?php echo $day ?></div>
+                                    <div class="headlinesmonth"><?php echo $month ?></div>
+                                </div>
+                                <div class="headlinesyear">
+                                    '<?php echo $year ?></div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <?php twenty_twenty_one_post_thumbnail(); ?>
 
-				<div class="entry-content">
-					<?php
-					the_content();
+            </header><!-- .entry-header -->
 
-					wp_link_pages(
-						array(
-							'before'   => '<nav class="page-links" aria-label="' . esc_attr__('Page', 'twentytwentyone') . '">',
-							'after'    => '</nav>',
-							/* translators: %: Page number. */
-							'pagelink' => esc_html__('Page %', 'twentytwentyone'),
-						)
-					);
-					?>
-				</div><!-- .entry-content -->
+                <div class="container">
+                    <div class="entry-contenc">
+                        <?php
+                        the_content();
 
-				<footer class="entry-footer default-max-width">
-					<?php twenty_twenty_one_entry_meta_footer(); ?>
-				</footer><!-- .entry-footer -->
+                        wp_link_pages(
+                            array(
+                                'before'   => '<nav class="page-links" aria-label="' . esc_attr__( 'Page', 'twentytwentyone' ) . '">',
+                                'after'    => '</nav>',
+                                /* translators: %: Page number. */
+                                'pagelink' => esc_html__( 'Page %', 'twentytwentyone' ),
+                            )
+                        );
+                        ?>
+                    </div><!-- .entry-content -->
+                </div><!-- .entry-content -->
 
-				<?php if (!is_singular('attachment')) : ?>
-					<?php get_template_part('template-parts/post/author-bio'); ?>
-				<?php endif; ?>
+                <footer class="entry-footer editfooter">
+                    <?php twenty_twenty_one_entry_meta_footer(); ?>
+                </footer><!-- .entry-footer -->
 
-			</article><!-- #post-<?php the_ID(); ?> -->
-		</div>
-		<div class="col-2">
-			<?php
-			$has_sidebar_8 = is_active_sidebar('sidebar-8');
+                <?php if (!is_singular('attachment')) : ?>
+                    <?php get_template_part('template-parts/post/author-bio'); ?>
+                <?php endif; ?>
 
-			if ($has_sidebar_8) { ?>
+            </article><!-- #post-<?php the_ID(); ?> -->
+        </div>
+        <div class="col-2">
+            <?php
+            $has_sidebar_8 = is_active_sidebar('sidebar-8');
 
-				<div class="footer-widgets column-two grid-item">
-					<?php dynamic_sidebar(index: 'sidebar-8'); ?>
-				</div>
+            if ($has_sidebar_8) { ?>
 
-			<?php }
-			?>
-		</div>
-	</div>
+                <div class="footer-widgets column-two grid-item">
+                    <?php dynamic_sidebar(index: 'sidebar-8'); ?>
+                </div>
+
+            <?php }
+            ?>
+        </div>
+    </div>
 </div>
+
