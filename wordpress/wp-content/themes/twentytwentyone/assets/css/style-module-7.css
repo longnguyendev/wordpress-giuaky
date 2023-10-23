@@ -1,0 +1,66 @@
+.module-7 .navigation {
+    width: fit-content;
+    background: #fff;
+    padding: 20px 30px;
+}
+
+.module-7 .navigation .nav-links {
+    flex-direction: column;
+}
+
+.module-7 .navigation .nav-links .nav-previous,
+.module-7 .navigation .nav-links .nav-next {
+    max-width: fit-content;
+    margin-bottom: 5px;
+}
+
+.module-7 .post-navigation .post-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: lighter;
+    text-wrap: nowrap;
+}
+
+.module-7 .navigation a {
+    align-items: center;
+}
+
+.module-7 .navigation a:hover {
+    text-decoration: none;
+}
+
+.module-7 .navigation a:hover .post-title {
+    text-decoration: underline;
+}
+
+.module-7.has-background-white .site a:focus:not(.wp-block-button__link):not(.wp-block-file__button) {
+    background: none;
+    color: #000;
+}
+
+.module-7 .has-background-white .site a:focus:not(.wp-block-button__link):not(.wp-block-file__button) {
+    text-decoration: none;
+}
+
+.module-7 .navigation .nav-links .nav-next {
+    text-align: left;
+}
+
+.module-7 .navigation .nav-links .nav-next a,
+.navigation .nav-links .nav-previous a {
+    flex-direction: row;
+    gap: 100px;
+
+}
+
+.module-7 .navigation .nav-links .date {
+    display: flex;
+    align-items: center;
+    font-family: 'Prata', serif;
+    gap: 3px;
+}
+
+.module-7 .navigation .nav-links .date .day {
+    margin-bottom: 3px;
+    border-bottom: 1px solid #000;
+}
