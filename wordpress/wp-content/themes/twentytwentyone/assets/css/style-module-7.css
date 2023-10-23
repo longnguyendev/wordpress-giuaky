@@ -10,7 +10,7 @@
 
 .module-7 .navigation .nav-links .nav-previous,
 .module-7 .navigation .nav-links .nav-next {
-    max-width: fit-content;
+    max-width: 100%;
     margin-bottom: 5px;
 }
 
@@ -23,6 +23,7 @@
 
 .module-7 .navigation a {
     align-items: center;
+    width: 100%;
 }
 
 .module-7 .navigation a:hover {
@@ -33,12 +34,12 @@
     text-decoration: underline;
 }
 
-.module-7.has-background-white .site a:focus:not(.wp-block-button__link):not(.wp-block-file__button) {
+.has-background-white .site .module-7 a:focus:not(.wp-block-button__link):not(.wp-block-file__button) {
     background: none;
     color: #000;
 }
 
-.module-7 .has-background-white .site a:focus:not(.wp-block-button__link):not(.wp-block-file__button) {
+.has-background-white .site .module-7 a:focus:not(.wp-block-button__link):not(.wp-block-file__button) {
     text-decoration: none;
 }
 
