@@ -18,7 +18,9 @@ $wrapper_classes .= has_nav_menu('primary') ? ' has-menu' : '';
 
 	<?php get_template_part('template-parts/header/site-branding'); ?>
 
-	<a class="menu-button" href=".">
+	<a class="menu-button" href="." <?php if (is_home()) {
+										echo 'style="background-color: #e7e7e7;"';
+									} ?>>
 		<span>Home</span>
 	</a>
 
