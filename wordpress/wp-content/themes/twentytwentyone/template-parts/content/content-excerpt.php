@@ -17,10 +17,10 @@
 			$day = get_the_date('d');
 			$month = get_the_date('m');
 			$content = explode(' ', get_the_content(), 15);
-			preg_match("#<img(.+?)src=(.+?)\/>#", get_the_content(), $images);
+			$images = get_the_post_thumbnail(get_the_ID());
 			echo '<div class ="module-5 post-card row border-content" >';
 			echo '<div class="col-md-4 img-content">';
-			echo $images[0];	
+			echo $images;	
 			echo '</div>'; 		
 			echo '<div class="post-crated-at col-md-2 my-3 text-center">';
 			echo '<span><h1>' . $day . '</h1></span>';
