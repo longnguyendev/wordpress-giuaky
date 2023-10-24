@@ -14,21 +14,24 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-3">
-			<h2>Categories</h2>
-			<?php
-			$categories = get_categories();
+			<div class="module-9">
+				<h2>Categories</h2>
+				<div class="crossedbg"></div>
+				<?php
+				$categories = get_categories();
 
-			if ($categories) {
-				echo '<ul>';
-				foreach ($categories as $category) {
-					$category_link = get_category_link($category->cat_ID);
-					echo '<li><a href="' . esc_url($category_link) . '">' . esc_html($category->name) . '</a></li>';
+				if ($categories) {
+					echo '<ul>';
+					foreach ($categories as $category) {
+						$category_link = get_category_link($category->cat_ID);
+						echo '<li><a href="' . esc_url($category_link) . '">' . esc_html($category->name) . '</a></li>';
+					}
+					echo '</ul>';
+				} else {
+					echo 'Không có danh mục nào.';
 				}
-				echo '</ul>';
-			} else {
-				echo 'Không có danh mục nào.';
-			}
-			?>
+				?>
+			</div>
 		</div>
 		<div class="col-md-6">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -80,7 +83,7 @@
 					echo '<ul>';
 					while ($recent_posts->have_posts()) : $recent_posts->the_post();
 						// Lấy ngày tháng của bài viết
-					
+
 
 						// Hiển thị tiêu đề bài viết và ngày tháng trong thẻ <li>
 						echo '<li>';
