@@ -65,10 +65,10 @@ get_header(); ?>
 					the_post();
 
 					/*
-		 * Include the Post-Format-specific template for the content.
-		 * If you want to override this in a child theme, then include a file
-		 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-		 */
+         * Include the Post-Format-specific template for the content.
+         * If you want to override this in a child theme, then include a file
+         * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+         */
 					get_template_part('template-parts/content/content-excerpt', get_post_format());
 				} // End the loop.
 
@@ -94,20 +94,31 @@ get_header(); ?>
 			?>
 		</div>
 		<!-- Lasted Post -->
+	</div>
+	<div class="module-15 default-max-width">
+		<h1>Lastest News</h1>
 		<?php
-		$has_sidebar_6 = is_active_sidebar('sidebar-6');
+		// Lấy danh sách các bài viết từ widget "Latest Posts"
+		$recent_posts = wp_get_recent_posts(array(
+			'numberposts' => 5,  // Số lượng bài viết bạn muốn hiển thị
+			'post_status' => 'publish'
+		));
 
-		if ($has_sidebar_6) { ?>
-
-			<div class="footer-widgets column-two grid-item">
-				<?php dynamic_sidebar(index: 'sidebar-6'); ?>
-			</div>
-
-		<?php }
+		// Duyệt qua danh sách bài viết và hiển thị thông tin
+		foreach ($recent_posts as $post) {
+			echo '<div class ="post-card row" >';
+			echo '<h4 class="post-title col-md-9"><a href="' . get_permalink($post['ID']) . '">' . $post['post_title'] . '</a></h4>'; // Tiêu đề bài viết
+			echo '<h5 class="post-crated-at col-md-3">' . date('d M Y', strtotime($post['post_date'])) . '</h5>'; // Thời gian đăng bài viết
+			if (strlen($post['post_content']) > 251) {
+				echo '<p>' . substr($post['post_content'], 0, 251) . '...' . '</p>'; // Nội dung bài viết
+			} else {
+				echo '<p>' . $post['post_content'] . '</p>'; // Nội dung bài viết
+			}
+			echo '</div>';
+		}
 		?>
 	</div>
 </div>
-
 
 
 <?php
