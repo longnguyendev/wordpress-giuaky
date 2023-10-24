@@ -10,16 +10,6 @@
  * @since Twenty Twenty-One 1.0
  */
 
-
-add_action('wp_enqueue_scripts', 'enqueue_style');
-
-function enqueue_style_module_12()
-{
-	wp_enqueue_style('style-css-module-12', get_stylesheet_directory_uri() . '/assets/css/module-12.css');
-}
-
-add_action('wp_enqueue_scripts', 'enqueue_style_module_12');
-
 // This theme requires WordPress 5.3 or later.
 if (version_compare($GLOBALS['wp_version'], '5.3', '<')) {
 	require get_template_directory() . '/inc/back-compat.php';
