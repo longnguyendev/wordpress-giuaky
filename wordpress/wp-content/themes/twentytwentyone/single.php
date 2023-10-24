@@ -90,10 +90,20 @@ while (have_posts()) :
 	?>
 	<div class="module-7">
 		<?php
+		$next_date = get_next_post()->post_date;
+		$next_day = date("j", strtotime($next_date));
+		$next_month = date("m", strtotime($next_date));
+		$next_year = date("y", strtotime($next_date));
+
+		$prev_date = get_previous_post()->post_date;
+		$prev_day = date("j", strtotime($prev_date));
+		$prev_month = date("m", strtotime($prev_date));
+		$prev_year = date("y", strtotime($prev_date));
+
 		the_post_navigation(
 			array(
-				'next_text' => '<div class="date"><div class="daymonth"><div class="day">' . get_the_date('d') . '</div><div class="month">' . get_the_date('m') . '</div></div><div class="year">' . get_the_date('y') . '</div></div><div class="post-title">%title</div>',
-				'prev_text' => '<div class="date"><div class="daymonth"><div class="day">' . get_the_date('d') . '</div><div class="month">' . get_the_date('m') . '</div></div><div class="year">' . get_the_date('y') . '</div></div><div class="post-title">%title</div>',
+				'next_text' => '<div class="date"><div class="daymonth"><div class="day">' . $next_day . '</div><div class="month">' . $next_month . '</div></div><div class="year">' . $next_year . '</div></div><div class="post-title">%title</div>',
+				'prev_text' => '<div class="date"><div class="daymonth"><div class="day">' . $prev_day . '</div><div class="month">' . $prev_month . '</div></div><div class="year">' . $prev_year . '</div></div><div class="post-title">%title</div>',
 			)
 		);
 		?>
