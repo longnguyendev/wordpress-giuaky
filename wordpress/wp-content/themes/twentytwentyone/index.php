@@ -33,24 +33,37 @@ get_header(); ?>
 
 		</div>
 		<div class="col-md-8">
-			<?php
-			if (have_posts()) {
+			<div class="module-2">
+				<?php
+				// Lấy danh sách các bài viết từ widget "Latest Posts"
+				$recent_posts = wp_get_recent_posts(
+					array(
+						'numberposts' => 5,
+						// Số lượng bài viết bạn muốn hiển thị
+						'post_status' => 'publish'
+					)
+				);
 
-				// Load posts loop.
-				while (have_posts()) {
-					the_post();
-
-					get_template_part('template-parts/content/content', get_theme_mod('display_excerpt_or_full_post', 'excerpt'));
+				// Duyệt qua danh sách bài viết và hiển thị thông tin
+				foreach ($recent_posts as $post) {
+					echo '<div class ="module-2 post-card row" >';
+					
+					echo '<div class="post-crated-at col-md-3 text-center">';
+					echo '<p class="h1">' . date('d', strtotime($post['post_date'])) . '</p>';
+					echo '<p>Tháng' . date('m', strtotime($post['post_date'])) . '</p>';
+					 echo '</div>'; // Thời gian đăng bài viết
+					echo '<h4 class="post-title col-md-9"><a href="' . get_permalink($post['ID']) . '">' . $post['post_title'] . '</a>'; // Tiêu đề bài viết
+					if (strlen($post['post_content']) > 152) {
+						echo '<p class="content">' . substr($post['post_content'], 0, 152) . '<a href="'.get_permalink($post['ID']).'">[...]</a>' . '</p>'; // Nội dung bài viết
+					} else {
+						echo '<p class="content">' . $post['post_content'] . '</p>'; // Nội dung bài viết
+					}
+					echo '</h4>';
+					echo '</div>';
 				}
+				?>
+			</div>
 
-				// Previous/next page navigation.
-				twenty_twenty_one_the_posts_navigation();
-			} else {
-
-				// If no content, include the "No posts found" template.
-				get_template_part('template-parts/content/content-none');
-			}
-			?>
 		</div>
 		<div class="col-md-2">
 			<div class="module-12">
@@ -71,9 +84,11 @@ get_header(); ?>
 	</div>
 </div>
 
-<?php if (is_home() && !is_front_page() && !empty(single_post_title('', false))) : ?>
+<?php if (is_home() && !is_front_page() && !empty(single_post_title('', false))): ?>
 	<header class="page-header alignwide">
-		<h1 class="page-title"><?php single_post_title(); ?></h1>
+		<h1 class="page-title">
+			<?php single_post_title(); ?>
+		</h1>
 	</header><!-- .page-header -->
 <?php endif; ?>
 
