@@ -786,16 +786,17 @@ if (!function_exists('wp_get_list_item_separator')) :
 	}
 endif;
 
-function custom_comment_post() {
-    if (isset($_POST['comment'])) {
-        $comment_data = array(
-            'comment_post_ID' => get_the_ID(),
-            'comment_content' => $_POST['comment'],
-            'comment_author' => $_POST['author'],
-            'comment_author_email' => $_POST['email'],
-        );
-        wp_insert_comment($comment_data);
-    }
+function custom_comment_post()
+{
+	if (isset($_POST['comment'])) {
+		$comment_data = array(
+			'comment_post_ID' => get_the_ID(),
+			'comment_content' => $_POST['comment'],
+			'comment_author' => $_POST['author'],
+			'comment_author_email' => $_POST['email'],
+		);
+		wp_insert_comment($comment_data);
+	}
 }
 
 add_action('init', 'custom_comment_post');
