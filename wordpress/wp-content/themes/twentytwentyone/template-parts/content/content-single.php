@@ -14,18 +14,21 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-3">
+			<h2>Categories</h2>
 			<?php
-			$has_sidebar_7 = is_active_sidebar('sidebar-7');
+			$categories = get_categories();
 
-			if ($has_sidebar_7) { ?>
-
-				<div class="footer-widgets column-two grid-item">
-					<?php dynamic_sidebar(index: 'sidebar-7'); ?>
-				</div>
-
-			<?php }
+			if ($categories) {
+				echo '<ul>';
+				foreach ($categories as $category) {
+					$category_link = get_category_link($category->cat_ID);
+					echo '<li><a href="' . esc_url($category_link) . '">' . esc_html($category->name) . '</a></li>';
+				}
+				echo '</ul>';
+			} else {
+				echo 'Không có danh mục nào.';
+			}
 			?>
-
 		</div>
 		<div class="col-md-6">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -77,16 +80,16 @@
 					echo '<ul>';
 					while ($recent_posts->have_posts()) : $recent_posts->the_post();
 						// Lấy ngày tháng của bài viết
-						$post_date = get_the_date();
+					
 
 						// Hiển thị tiêu đề bài viết và ngày tháng trong thẻ <li>
 						echo '<li>';
 						echo '<div class="headlinesdate">';
 						echo '<div class="headlinesdm">';
-						echo '<div class="headlinesday">' . date("d", strtotime($post_date)) . '</div>';
-						echo '<div class="headlinesmonth">' . date("m", strtotime($post_date)) . '</div>';
+						echo '<div class="headlinesday">' . get_the_date('d') . '</div>';
+						echo '<div class="headlinesmonth">' . get_the_date('m') . '</div>';
 						echo '</div>';
-						echo '<div class="headlinesyear">' . date("y", strtotime($post_date)) . '</div>';
+						echo '<div class="headlinesyear">' . get_the_date('y') . '</div>';
 						echo '</div>';
 						echo '<div class="headlinestitle">';
 						echo '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
