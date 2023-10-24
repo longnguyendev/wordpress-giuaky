@@ -33,36 +33,61 @@
 				?>
 			</div>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-6 background-content">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-				<header class="entry-header alignwide">
-					<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
-					<?php twenty_twenty_one_post_thumbnail(); ?>
-				</header><!-- .entry-header -->
+            <!-- Sua module 6 -->
+            <header class="line container alignwide">
+                    <div class="detail">
+                        <div class=" row title pt-4">
+                            <div class="col-md-10">
+                                <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+                            </div>
+                            <div class="col-md-2">
+                                <?php 
+                                    $day = get_the_date('d');
+                                    $month = get_the_date('m');
+                                    $year = get_the_date('y');
+                                ?>
+                                <div class="headlinesdate">
+                                    <div class="headlinesdm">
+                                        <div class="headlinesday"><?php echo $day ?></div>
+                                        <div class="headlinesmonth"><?php echo $month ?></div>
+                                    </div>
+                                    <div class="headlinesyear">
+                                        '<?php echo $year ?></div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php twenty_twenty_one_post_thumbnail(); ?>
 
-				<div class="entry-content">
-					<?php
-					the_content();
+            </header><!-- .entry-header -->
 
-					wp_link_pages(
-						array(
-							'before'   => '<nav class="page-links" aria-label="' . esc_attr__('Page', 'twentytwentyone') . '">',
-							'after'    => '</nav>',
-							/* translators: %: Page number. */
-							'pagelink' => esc_html__('Page %', 'twentytwentyone'),
-						)
-					);
-					?>
-				</div><!-- .entry-content -->
+                <div class="container">
+                    <div class="entry-contenc">
+                        <?php
+                        the_content();
 
-				<footer class="entry-footer default-max-width">
-					<?php twenty_twenty_one_entry_meta_footer(); ?>
-				</footer><!-- .entry-footer -->
+                        wp_link_pages(
+                            array(
+                                'before'   => '<nav class="page-links" aria-label="' . esc_attr__( 'Page', 'twentytwentyone' ) . '">',
+                                'after'    => '</nav>',
+                                /* translators: %: Page number. */
+                                'pagelink' => esc_html__( 'Page %', 'twentytwentyone' ),
+                            )
+                        );
+                        ?>
+                    </div><!-- .entry-content -->
+                </div><!-- .entry-content -->
 
-				<?php if (!is_singular('attachment')) : ?>
-					<?php get_template_part('template-parts/post/author-bio'); ?>
-				<?php endif; ?>
+                <footer class="entry-footer editfooter">
+                    <?php twenty_twenty_one_entry_meta_footer(); ?>
+                </footer><!-- .entry-footer -->
+
+                <?php if (!is_singular('attachment')) : ?>
+                    <?php get_template_part('template-parts/post/author-bio'); ?>
+                <?php endif; ?>
 
 			</article><!-- #post-<?php the_ID(); ?> -->
 		</div>
@@ -109,3 +134,4 @@
 		</div>
 	</div>
 </div>
+
