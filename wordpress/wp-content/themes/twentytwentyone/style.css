@@ -3941,7 +3941,11 @@ table.wp-calendar-table caption {
 	color: var(--wp--style--color--link, var(--global--color-white));
 }
 
-
+.singular .entry-header {
+	border-bottom: 3px solid var(--global--color-border);
+	padding-bottom: calc(2 * var(--global--spacing-vertical));
+	margin-bottom: calc(3 * var(--global--spacing-vertical));
+}
 
 .home .entry-header {
 	border-bottom: none;
