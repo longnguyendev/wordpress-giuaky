@@ -800,3 +800,4 @@ function custom_comment_post()
 }
 
 add_action('init', 'custom_comment_post');
+
