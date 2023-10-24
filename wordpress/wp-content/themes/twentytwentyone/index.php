@@ -18,7 +18,7 @@
 get_header(); ?>
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-2">
+		<div class="col-md-2">
 			<?php
 			$has_sidebar_2 = is_active_sidebar('sidebar-2');
 
@@ -32,7 +32,7 @@ get_header(); ?>
 			?>
 
 		</div>
-		<div class="col-8">
+		<div class="col-md-8">
 			<?php
 			if (have_posts()) {
 
@@ -65,10 +65,10 @@ get_header(); ?>
 
 				<?php }
 				?>
+
 			</div>
 		</div>
 	</div>
-</div>
 </div>
 
 <?php if (is_home() && !is_front_page() && !empty(single_post_title('', false))) : ?>
