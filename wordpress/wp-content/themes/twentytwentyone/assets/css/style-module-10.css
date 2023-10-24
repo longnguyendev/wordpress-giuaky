@@ -1,0 +1,58 @@
+:root {
+    --white: #fff;
+    --bg-recentpost: #56bdbf;
+    --bg-recentpost-header: #4bb4b6;
+    --bg-recentpost-button: #62c6c8;
+}
+
+.module-10 {
+    background-color: var(--bg-recentpost);
+    color: var(--white);
+}
+
+.module-10 h2 {
+    padding: 30px 15px;
+    background-color: var(--bg-recentpost-header);    
+}
+
+.module-10 a {
+    background-color: var(--bg-recentpost);
+    color: var(--white);
+    text-decoration: none;
+}
+
+.module-10 a:hover {
+    text-decoration: underline;
+}
+
+.module-10 ul {
+    padding: 20px 30px;
+}
+
+.module-10 li {
+    list-style: none;
+    display: flex;
+    gap: 60px;
+    margin-bottom: 5px;
+}
+
+.module-10 .headlinesdate {
+    display: flex;
+    align-items: center;
+    font-family: 'Prata', serif;
+    font-size: 16px;
+}
+
+.module-10 .headlinesdate .headlinesday {
+    margin-bottom: 3px;
+    margin-right: 3px;
+    border-bottom: 1px solid #fff;
+}
+
+.module-10 .button-see-all {
+    background-color: var(--bg-recentpost-button);
+    display: block;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
