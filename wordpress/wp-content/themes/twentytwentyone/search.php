@@ -46,23 +46,24 @@ get_header(); ?>
 				?>
 			</div>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-6 pt-2 px-5 background-content">
 			<?php
 			if (have_posts()) {
 			?>
-				<header class="page-header alignwide">
+				<!-- <header class="page-header alignwide">
 					<h1 class="page-title">
 						<?php
-						printf(
+						// printf(
 							/* translators: %s: Search term. */
-							esc_html__('Results for "%s"', 'twentytwentyone'),
-							'<span class="page-description search-term">' . esc_html(get_search_query()) . '</span>'
-						);
-						?>
+						// 	esc_html__('Results for "%s"', 'twentytwentyone'),
+						// 	'<span class="page-description search-term">' . esc_html(get_search_query()) . '</span>'
+						// );
+						// ?>
 					</h1>
-				</header><!-- .page-header -->
+				</header> -->
+				<!-- .page-header -->
 
-				<div class="search-result-count default-max-width">
+				<!-- <div class="search-result-count default-max-width">
 					<?php
 					printf(
 						esc_html(
@@ -77,7 +78,8 @@ get_header(); ?>
 						(int) $wp_query->found_posts
 					);
 					?>
-				</div><!-- .search-result-count -->
+				</div> -->
+				<!-- .search-result-count -->
 				<?php
 				// Start the Loop.
 				while (have_posts()) {
