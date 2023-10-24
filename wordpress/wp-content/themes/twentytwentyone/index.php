@@ -52,8 +52,8 @@ get_header(); ?>
 			}
 			?>
 		</div>
-		<div class="col-2">
-			<div class="module-2">
+		<div class="col-md-2">
+			<div class="module-12">
 				<?php
 				$has_sidebar_2 = is_active_sidebar('sidebar-3');
 
