@@ -5982,35 +5982,37 @@ footer {
 }
 
 .entry-contenc {
-	font-family: 'Open Sans', sans-serif;
 	font-size: 14px !important;
+	font-style: italic;
 	color: #333 !important;
 	text-align: justify !important;
     line-height: 1.7em !important;
+	font-weight: lighter !important;
 }
 /* Có chỉnh sửa */
 .singular .entry-header {
+	position: relative;
 	border-bottom: 3px solid var(--global--color-border);
 	padding-bottom: calc(2 * var(--global--spacing-vertical));
 	margin-bottom: calc(3 * var(--global--spacing-vertical));
 }
-/* .singular .entry-header {
+.singular .line{
 	position: relative;
 	border-bottom: 1px solid #cecece;
 	padding-bottom: calc(1 * var(--global--spacing-vertical));
 	margin-bottom: calc(2 * var(--global--spacing-vertical));
 }
 
-.singular .entry-header:after {
+.singular .line:after {
 	position: absolute;
 	content: '';
 	bottom: -14px;
 	left: 51.5px;
 	border-left: 15px solid transparent;
 	border-right: 15px solid transparent;
-	border-top: 15px solid #ffffff;
+	border-top: 15px solid #f5f5f5;
 }
-.singular .entry-header:before {
+.singular .line:before {
 	position: absolute;
 	content: '';
 	bottom: -16px;
@@ -6018,7 +6020,12 @@ footer {
 	border-left: 16px solid transparent;
 	border-right: 16px solid transparent;
 	border-top: 16px solid #cecece;
-} */
+}
 .editfooter{
 	margin-left: 70%;
+	font-weight: lighter !important;
+
+}
+.background-content {
+	background: url("./assets/images/background-content.jpg") repeat;
 }

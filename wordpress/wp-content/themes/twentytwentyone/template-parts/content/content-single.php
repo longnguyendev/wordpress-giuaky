@@ -27,35 +27,35 @@
             ?>
 
         </div>
-        <div class="col-8">
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <div class="col-8 background-content">
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
             <!-- Sua module 6 -->
-            <header class="entry-header container alignwide">
-                <div class="detail">
-                    <div class=" row title">
-                        <div class="col-md-10">
-                            <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-                        </div>
-                        <div class="col-md-2">
-                            <?php 
-                                $day = get_the_date('d');
-                                $month = get_the_date('m');
-                                $year = get_the_date('y');
-                            ?>
-                            <div class="headlinesdate">
-                                <div class="headlinesdm">
-                                    <div class="headlinesday"><?php echo $day ?></div>
-                                    <div class="headlinesmonth"><?php echo $month ?></div>
-                                </div>
-                                <div class="headlinesyear">
-                                    '<?php echo $year ?></div>
-                                </div>
+            <header class="line container alignwide">
+
+                    <div class="detail">
+                        <div class=" row title pt-4">
+                            <div class="col-md-10">
+                                <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+                            </div>
+                            <div class="col-md-2">
+                                <?php 
+                                    $day = get_the_date('d');
+                                    $month = get_the_date('m');
+                                    $year = get_the_date('y');
+                                ?>
+                                <div class="headlinesdate">
+                                    <div class="headlinesdm">
+                                        <div class="headlinesday"><?php echo $day ?></div>
+                                        <div class="headlinesmonth"><?php echo $month ?></div>
+                                    </div>
+                                    <div class="headlinesyear">
+                                        '<?php echo $year ?></div>
+                                    </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <?php twenty_twenty_one_post_thumbnail(); ?>
+                    <?php twenty_twenty_one_post_thumbnail(); ?>
 
             </header><!-- .entry-header -->
 
