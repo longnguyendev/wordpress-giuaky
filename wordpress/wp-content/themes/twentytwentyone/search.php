@@ -59,7 +59,7 @@ get_header(); ?>
 					);
 					?>
 				</div><!-- .search-result-count -->
-			<?php
+				<?php
 				// Start the Loop.
 				while (have_posts()) {
 					the_post();
@@ -76,8 +76,11 @@ get_header(); ?>
 				twenty_twenty_one_the_posts_navigation();
 
 				// If no content, include the "No posts found" template.
-			} else {
-				get_template_part('template-parts/content/content-none');
+			} else { ?>
+				<div class="module-4">
+					<?php get_template_part('template-parts/content/content-none'); ?>
+				</div>
+			<?php
 			} ?>
 		</div>
 		<div class="col-2">
