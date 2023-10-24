@@ -30,12 +30,11 @@
 			}
 			?>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-6 background-content">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
             <!-- Sua module 6 -->
             <header class="line container alignwide">
-
                     <div class="detail">
                         <div class=" row title pt-4">
                             <div class="col-md-10">
