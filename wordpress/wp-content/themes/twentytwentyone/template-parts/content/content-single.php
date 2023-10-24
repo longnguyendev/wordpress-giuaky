@@ -13,7 +13,7 @@
 ?>
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-2">
+		<div class="col-md-3">
 			<?php
 			$has_sidebar_7 = is_active_sidebar('sidebar-7');
 
@@ -27,7 +27,7 @@
 			?>
 
 		</div>
-		<div class="col-8">
+		<div class="col-md-6">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 				<header class="entry-header alignwide">
@@ -60,18 +60,46 @@
 
 			</article><!-- #post-<?php the_ID(); ?> -->
 		</div>
-		<div class="col-2">
-			<?php
-			$has_sidebar_8 = is_active_sidebar('sidebar-8');
+		<div class="col-md-3">
+			<div class="module-10">
+				<?php
+				$args = array(
+					'post_type' => 'post',
+					'posts_per_page' => 5, // Số lượng bài viết mới nhất bạn muốn hiển thị
+					'orderby' => 'date',
+					'order' => 'DESC',
+				);
 
-			if ($has_sidebar_8) { ?>
+				$recent_posts = new WP_Query($args);
 
-				<div class="footer-widgets column-two grid-item">
-					<?php dynamic_sidebar(index: 'sidebar-8'); ?>
-				</div>
+				if ($recent_posts->have_posts()) :
+					echo '<h2>Recent Posts</h2>';
+					echo '<ul>';
+					while ($recent_posts->have_posts()) : $recent_posts->the_post();
+						// Lấy ngày tháng của bài viết
+						$post_date = get_the_date();
 
-			<?php }
-			?>
+						// Hiển thị tiêu đề bài viết và ngày tháng trong thẻ <li>
+						echo '<li>';
+						echo '<div class="headlinesdate">';
+						echo '<div class="headlinesdm">';
+						echo '<div class="headlinesday">' . date("d", strtotime($post_date)) . '</div>';
+						echo '<div class="headlinesmonth">' . date("m", strtotime($post_date)) . '</div>';
+						echo '</div>';
+						echo '<div class="headlinesyear">' . date("y", strtotime($post_date)) . '</div>';
+						echo '</div>';
+						echo '<div class="headlinestitle">';
+						echo '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
+						echo '</div>';
+						echo '</li>';
+					endwhile;
+					echo '</ul>';
+					echo '<a class="button-see-all" href="' . get_permalink(get_option('page_for_posts')) . '">XEM TẤT CẢ TIN TỨC</a>';
+				endif;
+
+				wp_reset_postdata(); // Đặt lại trạng thái truy vấn
+				?>
+			</div>
 		</div>
 	</div>
 </div>
