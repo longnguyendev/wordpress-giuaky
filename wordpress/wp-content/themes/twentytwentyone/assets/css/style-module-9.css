@@ -1,0 +1,56 @@
+.module-9 {
+    background: url('http://fit.tdc.edu.vn/addons/default/themes/bootstrapThree/img/bg_pattern.png');
+    padding: 10px;
+}
+
+.module-9 h2 {
+    font-weight: 800;
+    font-size: 1.8em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #333;
+    font-family: 'Open Sans', sans-serif;
+    padding: 20px 0 0;
+}
+
+.crossedbg {
+    background: url('http://fit.tdc.edu.vn/addons/default/themes/bootstrapThree/img/bg_cr_grey.png');
+    height: 15px;
+}
+
+.module-9 ul {
+    padding: 15px;
+    background-color: #fff;
+    margin-bottom: 0;
+}
+
+.module-9 li {
+    padding: 5px 15px !important;
+    margin: 0 5px !important;
+    list-style-type: none;
+    border-bottom: 1px #d9d9d9 solid;
+}
+
+.module-9 li:last-child {
+    border-bottom: none;
+}
+
+.module-9 li::before {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f5ce31;
+    content: "\2022";
+    font-size: 2em;
+    padding-right: 0.5em;
+    position: relative;
+    top: 0.15em;
+}
+
+.module-9 li a {
+    color: #428bca;
+    text-decoration: none;
+    font-weight: lighter;
+}
+
+.module-9 li a:hover {
+    text-decoration: underline;
+}
