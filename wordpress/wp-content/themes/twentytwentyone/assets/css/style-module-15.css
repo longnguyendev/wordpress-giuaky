@@ -1,0 +1,46 @@
+:root {
+  --color-post-title: #52a7ff;
+}
+
+.module-15 .post-title a {
+  text-decoration: none;
+  color: var(--color-post-title);
+}
+.module-15 .post-crated-at {
+  color: var(--color-post-title);
+}
+.module-15 p.post-content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+.module-15 .post-card {
+  position: relative;
+}
+.module-15 .post-card::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  top: 0;
+  left: -30px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 3px solid #23c0e8;
+  background-color: #ffff;
+  z-index: 999;
+}
+.module-15 .post-card::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  top: 0;
+  left: -20px;
+  width: 0px;
+  height: 100%;
+  border: 2px solid #eee;
+  z-index: 99;
+}
