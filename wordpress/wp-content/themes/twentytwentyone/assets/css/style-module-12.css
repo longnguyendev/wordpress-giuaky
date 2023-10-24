@@ -1,21 +1,21 @@
 :root {
   --color: #488dc6;
 }
-.module-2 .wp-block-latest-comments__comment-meta {
+.module-12 .wp-block-latest-comments__comment-meta {
   display: none;
   width: 0;
   height: 0;
 }
-.module-2 .avatar.avatar-48.photo.wp-block-latest-comments__comment-avatar {
+.module-12 .avatar.avatar-48.photo.wp-block-latest-comments__comment-avatar {
   visibility: hidden;
   width: 0;
   height: 0;
 }
-.module-2 .wp-block-latest-comments__comment-excerpt p {
+.module-12 .wp-block-latest-comments__comment-excerpt p {
   position: relative;
   left: 0;
 }
-.module-2
+.module-12
   .wp-block-latest-comments
   .wp-block-latest-comments__comment-excerpt
   p {
@@ -23,6 +23,6 @@
   left: -48px;
   color: var(--color);
 }
-.module-2 .wp-block-latest-comments .wp-block-latest-comments__comment {
+.module-12 .wp-block-latest-comments .wp-block-latest-comments__comment {
   margin: 0;
 }
