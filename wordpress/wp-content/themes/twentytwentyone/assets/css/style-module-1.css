@@ -13,6 +13,10 @@
     --module-1-shadow-search-focus: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
 }
 
+a {
+    overflow-wrap: break-word !important; 
+}
+
 .site .site-header a:focus:not(.wp-block-button__link):not(.wp-block-file__button) {
     text-decoration: none;
 }
