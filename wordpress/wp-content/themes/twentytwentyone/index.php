@@ -20,7 +20,7 @@ get_header(); ?>
 	<div class="row">
 		<div class="col-md-4 ">
 			<div class="row edit-view">
-				<h4 >Xem nhiều</h4>
+				<h4 class = "post-">Bài viết yêu thích</h4>
 				<?php $query = new WP_Query( array( 'orderby' => 'comment_count') );
 				if ($query->have_posts()) {
 					while ($query->have_posts()) {
@@ -29,9 +29,9 @@ get_header(); ?>
 						$count = get_comments_number();
 						// Hiển thị thông tin trang
 						echo '<div class="col-6">
-								<div class="border-top border-bot row">
-									<div class="col-2 post-count h3">' .$count. '</div>'
-									.'<div class="col-10">' . $title . '</div>'.
+								<div class="border-top border-bot row py-2">
+									<div class="col-2 post-count">' .$count. '</div>'
+									.'<div class="col-10 post-title">' . $title . '</div>'.
 								'</div>'.
 							'</div>';
 					}

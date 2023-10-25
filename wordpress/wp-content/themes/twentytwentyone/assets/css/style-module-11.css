@@ -1,6 +1,7 @@
 
 .row.edit-view {
     position: relative;
+    font-family: "Merriweather",serif;
 }
 .row.edit-view ::after {
     position: absolute;
@@ -12,4 +13,14 @@
     z-index: 99;
     top: 50%;
     transform: translateY(-50%);
+}
+.post-count {
+    font-size: 48px;
+    color: #222;
+    font-weight: bold;
+}
+.post-title {
+    font-size: 14px;
+    line-height: 160%;
+    margin-bottom: 4px;
 }
