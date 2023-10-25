@@ -18,21 +18,29 @@
 get_header(); ?>
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-2">
-			<?php
-			$has_sidebar_2 = is_active_sidebar('sidebar-2');
-
-			if ($has_sidebar_2) { ?>
-
-				<div class="footer-widgets column-two grid-item">
-					<?php dynamic_sidebar(index: 'sidebar-2'); ?>
-				</div>
-
-			<?php }
-			?>
-
+		<div class="col-md-4 ">
+			<div class="row edit-view">
+				<h4 >Xem nhiều</h4>
+				<?php $query = new WP_Query( array( 'orderby' => 'comment_count') );
+				if ($query->have_posts()) {
+					while ($query->have_posts()) {
+						$query->the_post();
+						$title = get_the_title();
+						$count = get_comments_number();
+						// Hiển thị thông tin trang
+						echo '<div class="col-6">
+								<div class="border-top border-bot row">
+									<div class="col-2 post-count h3">' .$count. '</div>'
+									.'<div class="col-10">' . $title . '</div>'.
+								'</div>'.
+							'</div>';
+					}
+					wp_reset_postdata();
+				}
+				?>
+			</div>
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-6">
 			<div class="module-2">
 				<?php
 				// Lấy danh sách các bài viết từ widget "Latest Posts"
