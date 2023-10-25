@@ -1,0 +1,15 @@
+
+.row.edit-view {
+    position: relative;
+}
+.row.edit-view ::after {
+    position: absolute;
+    content: "";
+    height: 80%;
+    width: 1px;
+    right: 50%;
+    background-color: #eee;
+    z-index: 99;
+    top: 50%;
+    transform: translateY(-50%);
+}
