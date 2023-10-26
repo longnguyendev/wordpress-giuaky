@@ -2,45 +2,63 @@
   --color-post-title: #52a7ff;
 }
 
-.module-15 .post-title a {
-  text-decoration: none;
-  color: var(--color-post-title);
+.module-15 ul.timeline {
+  list-style-type: none;
+  position: relative;
+  margin-bottom: 0;
 }
-.module-15 .post-crated-at {
+
+.module-15 .float-left {
   color: var(--color-post-title);
+  font-weight: bold;
 }
-.module-15 p.post-content {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* number of lines to show */
-  line-clamp: 5;
-  -webkit-box-orient: vertical;
+
+.module-15 .float-right {
+  color: var(--color-post-title);
+  font-weight: bold;
+  float: right !important;
 }
 .module-15 .post-card {
   position: relative;
 }
+
+.module-15 a {
+  text-decoration: none;
+}
+
+.module-15 li {
+  padding-left: 20px;
+  text-align: -webkit-match-parent;
+}
+
+.module-15 p {
+  display: block;
+  margin-bottom: 0;
+}
+
 .module-15 .post-card::before {
   position: absolute;
   content: "";
   inset: 0;
   top: 0;
-  left: -30px;
-  width: 25px;
-  height: 25px;
+  left: -20px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   border: 3px solid #23c0e8;
   background-color: #ffff;
   z-index: 999;
+  box-sizing: border-box;
 }
 .module-15 .post-card::after {
   position: absolute;
   content: "";
   inset: 0;
   top: 0;
-  left: -20px;
-  width: 0px;
+  left: -12px;
+  width: 3px;
   height: 100%;
-  border: 2px solid #eee;
+  background: #eee;
   z-index: 99;
+  box-sizing: border-box;
 }

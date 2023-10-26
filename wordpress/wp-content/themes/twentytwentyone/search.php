@@ -54,11 +54,12 @@ get_header(); ?>
 					<h1 class="page-title">
 						<?php
 						// printf(
-							/* translators: %s: Search term. */
+						/* translators: %s: Search term. */
 						// 	esc_html__('Results for "%s"', 'twentytwentyone'),
 						// 	'<span class="page-description search-term">' . esc_html(get_search_query()) . '</span>'
 						// );
-						// ?>
+						// 
+						?>
 					</h1>
 				</header> -->
 				<!-- .page-header -->
@@ -129,16 +130,22 @@ get_header(); ?>
 		));
 
 		// Duyệt qua danh sách bài viết và hiển thị thông tin
-		foreach ($recent_posts as $post) {
-			echo '<div class ="post-card row" >';
-			echo '<h4 class="post-title col-md-9"><a href="' . get_permalink($post['ID']) . '">' . $post['post_title'] . '</a></h4>'; // Tiêu đề bài viết
-			echo '<h5 class="post-crated-at col-md-3">' . date('d M Y', strtotime($post['post_date'])) . '</h5>'; // Thời gian đăng bài viết
-			if (strlen($post['post_content']) > 251) {
-				echo '<p>' . substr($post['post_content'], 0, 251) . '...' . '</p>'; // Nội dung bài viết
-			} else {
-				echo '<p>' . $post['post_content'] . '</p>'; // Nội dung bài viết
-			}
-			echo '</div>';
+		foreach ($recent_posts as $post) { ?>
+			<ul class="timeline">
+				<li class="post-card">
+					<a class="float-left" href="<?php get_permalink($post['ID']) ?>"><?php echo $post['post_title']  ?></a>
+					<a class="float-right" href="#"><?php echo date('d M, Y', strtotime($post['post_date'])) ?></a>
+					<?php
+					if (strlen($post['post_content']) > 251) { ?>
+						<p><?php echo substr($post['post_content'], 0, 251) ?>... </p>
+					<?php } else { ?>
+						<p><?php echo $post['post_content'] ?></p>
+					<?php
+					}
+					?>
+				</li>
+			</ul>
+		<?php
 		}
 		?>
 	</div>
