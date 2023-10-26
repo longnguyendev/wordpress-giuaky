@@ -120,8 +120,8 @@ get_header(); ?>
 		</div>
 		<!-- Lasted Post -->
 	</div>
-	<div class="module-15 default-max-width">
-		<h1>Lastest News</h1>
+	<div class="module-15 default-max-width py-4">
+		<h4>Lastest News</h4>
 		<?php
 		// Lấy danh sách các bài viết từ widget "Latest Posts"
 		$recent_posts = wp_get_recent_posts(array(
