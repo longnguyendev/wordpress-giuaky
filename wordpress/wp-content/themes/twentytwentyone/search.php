@@ -130,8 +130,10 @@ get_header(); ?>
 		));
 
 		// Duyệt qua danh sách bài viết và hiển thị thông tin
-		foreach ($recent_posts as $post) { ?>
-			<ul class="timeline">
+		?>
+		<ul class="timeline">
+			<?php foreach ($recent_posts as $post) { ?>
+
 				<li class="post-card">
 					<a class="float-left" href="<?php get_permalink($post['ID']) ?>"><?php echo $post['post_title']  ?></a>
 					<a class="float-right" href="#"><?php echo date('d M, Y', strtotime($post['post_date'])) ?></a>
@@ -144,10 +146,11 @@ get_header(); ?>
 					}
 					?>
 				</li>
-			</ul>
-		<?php
-		}
-		?>
+
+			<?php
+			}
+			?>
+		</ul>
 	</div>
 </div>
 
