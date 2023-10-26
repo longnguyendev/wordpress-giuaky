@@ -1,6 +1,16 @@
 :root {
   --color: #488dc6;
 }
+
+.module-12 hr {
+  margin: 0 !important;
+}
+
+.module-12 li.wp-block-latest-comments__comment {
+  border-bottom: 1px solid #eee;
+  min-height: unset;
+}
+
 .module-12 .wp-block-latest-comments__comment-meta {
   display: none;
   width: 0;
@@ -14,6 +24,7 @@
 .module-12 .wp-block-latest-comments__comment-excerpt p {
   position: relative;
   left: 0;
+  font-weight: 500;
 }
 .module-12
   .wp-block-latest-comments
