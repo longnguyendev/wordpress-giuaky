@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The header.
  *
@@ -14,24 +15,28 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?> <?php twentytwentyone_the_html_classes(); ?>>
+
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>" />
+	<meta charset="<?php bloginfo('charset'); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Prata&display=swap" rel="stylesheet">
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content">
-		<?php
-		/* translators: Hidden accessibility text. */
-		esc_html_e( 'Skip to content', 'twentytwentyone' );
-		?>
-	</a>
+	<?php wp_body_open(); ?>
+	<div id="page" class="site">
+		<a class="skip-link screen-reader-text" href="#content">
+			<?php
+			/* translators: Hidden accessibility text. */
+			esc_html_e('Skip to content', 'twentytwentyone');
+			?>
+		</a>
 
-	<?php get_template_part( 'template-parts/header/site-header' ); ?>
+		<?php get_template_part('template-parts/header/site-header'); ?>
 
-	<div id="content" class="site-content">
-		<div id="primary" class="content-area">
-			<main id="main" class="site-main">
+		<div id="content" class="site-content">
+			<div id="primary" class="content-area">
+				<main id="main" class="site-main">

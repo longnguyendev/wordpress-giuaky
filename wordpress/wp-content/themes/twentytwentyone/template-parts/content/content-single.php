@@ -15,20 +15,10 @@
 	<div class="row">
 		<div class="col-md-3">
 			<div class="module-9">
-				<h2>Categories</h2>
-				<div class="crossedbg"></div>
-				<?php
-				$categories = get_categories();
-
-				if ($categories) {
-					echo '<ul>';
-					foreach ($categories as $category) {
-						$category_link = get_category_link($category->cat_ID);
-						echo '<li><a href="' . esc_url($category_link) . '">' . esc_html($category->name) . '</a></li>';
-					}
-					echo '</ul>';
-				} else {
-					echo 'Không có danh mục nào.';
+				<?php 
+				$has_sidebar_7 = is_active_sidebar('sidebar-7');
+				if($has_sidebar_7) {
+					dynamic_sidebar('sidebar-7');
 				}
 				?>
 			</div>
