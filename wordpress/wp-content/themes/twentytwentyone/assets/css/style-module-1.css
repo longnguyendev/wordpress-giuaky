@@ -14,7 +14,7 @@
 }
 
 a {
-    overflow-wrap: break-word !important; 
+    word-break: break-word !important; 
 }
 
 .site .site-header a:focus:not(.wp-block-button__link):not(.wp-block-file__button) {
