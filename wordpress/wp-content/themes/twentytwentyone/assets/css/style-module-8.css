@@ -12,6 +12,12 @@
     display: block;
 }
 
+.has-background-white .site .module-8 :focus:not(.wp-block-button__link):not(.wp-block-file__button) {
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+}
+
 .site .module-8 p {
     margin: 0;
 }
@@ -19,6 +25,12 @@
 .site .module-8 .form-floating>label {
     font-weight: normal;
     color: #aaa;
+    line-height: 1;
+    padding: 1rem;
+}
+
+.site .module-8 textarea {
+    margin: 0
 }
 
 .site .module-8 textarea:focus {
@@ -47,5 +59,3 @@
 .module-8 button:not(:hover):not(:active):not(.has-background).btn-primary {
     background: #0b5ed7;
 }
-
-.module-8 {}

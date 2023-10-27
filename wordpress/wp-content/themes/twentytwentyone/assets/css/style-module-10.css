@@ -5,6 +5,10 @@
     --bg-recentpost-button: #62c6c8;
 }
 
+.module-10 {
+    font-size: 14px;
+}
+
 .module-10 h2 {
     font-weight: 800;
     font-size: 1.8em;
@@ -31,26 +35,29 @@
     align-items: center;
     gap: 50px;
     margin-bottom: 5px;
+    font-size: 14px;
 }
 
 .module-10 a {
-    background-color: var(--bg-recentpost);
     color: var(--white);
     text-decoration: none;
     font-weight: 300;
-    font-size: 13px;
 }
 
 .module-10 .headlinesdate {
     display: flex;
     align-items: center;
     font-family: 'Prata', serif;
-    font-size: 11px;
+    font-size: 0.8em;
 }
 
 .module-10 .headlinesdate .headlinesday {
     line-height: 1.6em;
     border-bottom: 1px solid #fff;
+}
+
+.module-10 .headlinesdate .headlinesyear {
+    margin-left: 3px;
 }
 
 .module-10 .headlinestitle {
@@ -60,6 +67,7 @@
 }
 
 .module-10 .button-see-all {
+    font-family: 'Open Sans', sans-serif;
     background-color: var(--bg-recentpost-button);
     display: block;
     padding: 10px;

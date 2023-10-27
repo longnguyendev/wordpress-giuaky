@@ -1,3 +1,7 @@
+.module-7 {
+    font-size: 14px;
+}
+
 .module-7 .navigation {
     width: fit-content;
     background: #fff;
@@ -14,16 +18,10 @@
     margin-bottom: 5px;
 }
 
-.module-7 .post-navigation .post-title {
-    margin: 0;
-    font-size: 16px;
-    font-weight: lighter;
-    text-wrap: nowrap;
-}
-
 .module-7 .navigation a {
     align-items: center;
     width: 100%;
+    text-decoration: none;
 }
 
 .module-7 .navigation a:hover {
@@ -32,6 +30,12 @@
 
 .module-7 .navigation a:hover .post-title {
     text-decoration: underline;
+}
+
+.module-7 .post-navigation .post-title {
+    margin: 0;
+    font-weight: 300;
+    font-size: 14px;
 }
 
 .has-background-white .site .module-7 a:focus:not(.wp-block-button__link):not(.wp-block-file__button) {
@@ -50,7 +54,7 @@
 .module-7 .navigation .nav-links .nav-next a,
 .navigation .nav-links .nav-previous a {
     flex-direction: row;
-    gap: 100px;
+    gap: 50px;
 
 }
 
@@ -58,10 +62,14 @@
     display: flex;
     align-items: center;
     font-family: 'Prata', serif;
-    gap: 3px;
+    font-size: 0.8em;
 }
 
 .module-7 .navigation .nav-links .date .day {
-    margin-bottom: 3px;
+    line-height: 1.6em;
     border-bottom: 1px solid #000;
+}
+
+.module-7 .navigation .nav-links .date .year {
+    margin-left: 3px;
 }
