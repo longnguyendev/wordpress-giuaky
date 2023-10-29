@@ -13,10 +13,10 @@
 ?>
 
 <section class="no-results not-found">
-	<header class="page-header alignwide">
+	<header class="page-header alignwide pt-5">
 		<?php if (is_search()) : ?>
 
-			<h1 class="page-title text-danger text-center">
+			<p class="search-title text-danger text-center">
 				<?php
 				printf(
 					/* translators: %s: Search term. */
@@ -24,11 +24,11 @@
 					'<span class="page-description search-term text-dark">"' . esc_html(get_search_query()) . '"</span>'
 				);
 				?>
-			</h1>
+			</p>
 
 		<?php else : ?>
 
-			<h1 class="page-title"><?php esc_html_e('Nothing here', 'twentytwentyone'); ?></h1>
+			<h1 class="search-title"><?php esc_html_e('Nothing here', 'twentytwentyone'); ?></h1>
 
 		<?php endif; ?>
 	</header><!-- .page-header -->
@@ -54,7 +54,7 @@
 
 		<?php elseif (is_search()) : ?>
 
-			<p class="text-center"><?php esc_html_e('Sorry, but nothing find any results for your search. You can give it another try through the search form below.', 'twentytwentyone'); ?></p>
+			<p class="container-title text-center mb-5"><?php esc_html_e('Sorry, but nothing find any results for your search. You can give it another try through the search form below.', 'twentytwentyone'); ?></p>
 			<div class="bg-search">
 				<?php get_search_form(); ?>
 			</div>

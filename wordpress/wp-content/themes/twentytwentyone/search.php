@@ -46,7 +46,7 @@ get_header(); ?>
 				?>
 			</div>
 		</div>
-		<div class="col-md-6 pt-2 px-5 background-content">
+		<div class="col-md-6 py-5 px-5 background-content">
 			<?php
 			if (have_posts()) {
 			?>
@@ -121,7 +121,7 @@ get_header(); ?>
 		<!-- Lasted Post -->
 	</div>
 	<div class="module-15 default-max-width py-4">
-		<h4>Lastest News</h4>
+		<h4>Latest News</h4>
 		<?php
 		// Lấy danh sách các bài viết từ widget "Latest Posts"
 		$recent_posts = wp_get_recent_posts(array(
@@ -135,7 +135,7 @@ get_header(); ?>
 			<?php foreach ($recent_posts as $post) { ?>
 
 				<li class="post-card">
-					<a class="float-left" href="<?php echo get_permalink($post['ID']) ?>"><?php echo $post['post_title']  ?></a>
+					<a class="float-left" target="_blank" href="<?php echo get_permalink($post['ID']) ?>"><?php echo $post['post_title']  ?></a>
 					<a class="float-right" href="#"><?php echo date('d M, Y', strtotime($post['post_date'])) ?></a>
 					<?php
 					if (strlen($post['post_content']) > 251) { ?>
