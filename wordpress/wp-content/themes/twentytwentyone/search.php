@@ -46,7 +46,7 @@ get_header(); ?>
 				?>
 			</div>
 		</div>
-		<div class="col-md-6 py-5 px-5 background-content">
+		<div class="col-md-6 p-5 background-content">
 			<?php
 			if (have_posts()) {
 			?>

@@ -25,7 +25,7 @@ $twentytwentyone_aria_label = !empty($args['aria_label']) ? 'aria-label="' . esc
 					?> method="get" class="search-form" action="<?php echo esc_url(home_url('/')); ?>">
 	<label for="<?php echo esc_attr($twentytwentyone_unique_id); ?>"><?php _e('Search&hellip;', 'twentytwentyone'); // phpcs:ignore: WordPress.Security.EscapeOutput.UnsafePrintingFunction -- core trusts translations 
 																		?></label>
-	<i class="search-icon fa-solid fa-magnifying-glass"></i>
+	<i class="search-icon fa-solid fa-magnifying-glass h4"></i>
 	<input type="search" placeholder="Search topics or keywords" id="<?php echo esc_attr($twentytwentyone_unique_id); ?>" class="search-field" value="<?php echo get_search_query(); ?>" name="s" />
 	<input type="submit" class="search-submit" value="<?php echo esc_attr_x('Search', 'submit button', 'twentytwentyone'); ?>" />
 </form>

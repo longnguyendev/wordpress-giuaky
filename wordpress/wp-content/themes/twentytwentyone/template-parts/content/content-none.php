@@ -54,7 +54,7 @@
 
 		<?php elseif (is_search()) : ?>
 
-			<p class="container-title text-center mb-5"><?php esc_html_e('Sorry, but nothing find any results for your search. You can give it another try through the search form below.', 'twentytwentyone'); ?></p>
+			<p class="container-title text-center mb-5"><?php esc_html_e('We could not find any results for your search. You can give it another try through the search form below', 'twentytwentyone'); ?></p>
 			<div class="bg-search">
 				<?php get_search_form(); ?>
 			</div>
