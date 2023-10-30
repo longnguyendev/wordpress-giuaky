@@ -1,25 +1,50 @@
-.row.edit-view {
+.module-11 {
+    font-family: "Merriweather",serif;
+    position: relative;
+}
+.favorite-parent{
+    font-weight: bold;
+    font-family: "Merriweather",serif;
+    font-size: 18px;
+    position: relative;
+}
+.favorite {
+    content: "";
+    width: 10%;
+    height: 1px;
+    background: #9f224e;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.module-11 .row.edit-view {
     position: relative;
     font-family: "Merriweather",serif;
 }
-.row.edit-view ::after {
+.module-11 .row.edit-view ::after {
     position: absolute;
     content: "";
-    height: 80%;
+    height: 88%;
     width: 1px;
     right: 50%;
     background-color: #eee;
     z-index: 99;
-    top: 50%;
+    top: 47%;
     transform: translateY(-50%);
 }
-.post-count {
+.module-11 .post-count {
     font-size: 48px;
     color: #222;
     font-weight: bold;
+    margin-top: -8px;
 }
-.post-title {
+.module-11 .post-title {
     font-size: 14px;
     line-height: 160%;
     margin-bottom: 4px;
+    text-decoration: none;
+    color: #000;
+}
+.module-11 .post-title:hover{
+    color: #48b2e6 ;
 }

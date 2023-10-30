@@ -17,10 +17,15 @@
 
 get_header(); ?>
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-4 ">
+	<div class="favorite-parent">
+		<div class="favorite"></div>
+		<div>Bài viết yêu thích</div>
+	</div>
+	
+	<div class="row ">
+		<div class="col-md-4 module-11">
 			<div class="row edit-view">
-				<h4 class = "post-">Bài viết yêu thích</h4>
+				<!-- <hr style="width:30%; height:1px;margin-left:0; background: black; margin-top: 0;"> -->
 				<?php $query = new WP_Query( array( 'orderby' => 'comment_count') );
 				if ($query->have_posts()) {
 					while ($query->have_posts()) {
@@ -29,9 +34,9 @@ get_header(); ?>
 						$count = get_comments_number();
 						// Hiển thị thông tin trang
 						echo '<div class="col-6">
-								<div class="border-top border-bot row py-2">
+								<div class="border-top border-bot row">
 									<div class="col-2 post-count">' .$count. '</div>'
-									.'<div class="col-10 post-title">' . $title . '</div>'.
+									.'<a href="' . get_permalink() . '" class="col-10 post-title py-2">' . $title . '</a>'.
 								'</div>'.
 							'</div>';
 					}
