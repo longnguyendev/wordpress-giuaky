@@ -1,8 +1,3 @@
-:root {
-  --color-button-search: #28a745;
-  --color-bg-search: #f5efe0;
-}
-
 .module-4 .no-results.not-found {
   background-color: white;
 }
@@ -18,7 +13,7 @@
   width: 100%;
   height: 130px;
   padding-bottom: 10px;
-  background-color: var(--color-bg-search);
+  background-color: var(--module-4-color-bg-search);
   margin: 0;
 }
 
@@ -61,7 +56,7 @@
 }
 
 .module-4 input.search-submit {
-  background: var(--color-button-search) !important;
+  background: var(--module-4-color-button-search) !important;
   border-radius: 4px;
   position: absolute;
   padding: 0 10px;

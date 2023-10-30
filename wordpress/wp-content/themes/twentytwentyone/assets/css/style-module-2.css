@@ -1,16 +1,16 @@
-:root {
-    --color-post-title: #52a7ff;
-  }
-.module-2 .post-title a{
-    color: var(--color-post-title);
+.module-2 .post-title a {
+    color: var(--module-2-color-post-title);
     text-decoration: none;
 }
+
 .module-2 .post-crated-at {
     border-right: 2px solid #999;
 }
+
 .module-2 .post-card {
     margin-bottom: 80px;
 }
+
 .module-2 .post-title p {
     font-size: 1rem;
 }

@@ -28,56 +28,8 @@ while (have_posts()) :
 		);
 	}
 
-
-	if (is_user_logged_in()) {
-		if (comments_open() || get_comments_number()) {
-			comments_template();
-?>
-			<div class="module-8">
-				<div class="card text-end">
-					<div class="card-header">
-						<ul class="nav nav-tabs card-header-tabs">
-							<li class="nav-item">
-								<a class="nav-link active" aria-current="true" href="#">Make a Post</a>
-							</li>
-						</ul>
-					</div>
-					<?php
-					$comment_form_args = array(
-						'title_reply' => 'Make a Post',
-						'comment_notes_before' => '',
-						'class_submit' => 'btn btn-primary mt-3',
-						'class_form' => 'commentform text-end',
-						'id_form' => 'commentform',
-						'id_submit' => 'submit',
-						'comment_field' => '', // Để trống để không có trường bình luận mặc định
-						'submit_button' => '<div class="card-body">
-												<div class="form-floating">
-													<textarea class="form-control" placeholder="What are you thinking..." id="floatingTextarea2" name="comment" style="height: 100px"></textarea>
-													<label for="floatingTextarea2">What are you thinking...</label>
-												</div>
-												<button type="submit" class="btn btn-primary mt-3" id="submit">Share</button>
-											</div>',
-
-					);
-					comment_form($comment_form_args);
-					?>
-
-				</div>
-			</div>
-		<?php
-		}
-	} else {
-		?>
-		<div class="comment-guest">
-			<?php
-			// If comments are open or there is at least one comment, load up the comment template.
-			if (comments_open() || get_comments_number()) {
-				comments_template();
-			}
-			?>
-		</div>
-	<?php
+	if (comments_open() || get_comments_number()) {
+		comments_template();
 	}
 
 	// Previous/next post navigation.
@@ -87,7 +39,7 @@ while (have_posts()) :
 	$twentytwentyone_next_label     = esc_html__('Next post', 'twentytwentyone');
 	$twentytwentyone_previous_label = esc_html__('Previous post', 'twentytwentyone');
 
-	?>
+?>
 	<div class="module-7">
 		<?php
 		$next_date = get_next_post()->post_date;

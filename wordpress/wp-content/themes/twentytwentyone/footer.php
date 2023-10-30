@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the footer
  *
@@ -12,6 +13,7 @@
  */
 
 ?>
+</div>
 </main><!-- #main -->
 </div><!-- #primary -->
 </div><!-- #content -->
@@ -20,7 +22,7 @@
 
 <footer id="colophon" class="site-footer">
 
-	<?php if (has_nav_menu('footer')): ?>
+	<?php if (has_nav_menu('footer')) : ?>
 		<nav aria-label="<?php esc_attr_e('Secondary menu', 'twentytwentyone'); ?>" class="footer-navigation">
 			<ul class="footer-navigation-wrapper">
 				<?php
@@ -42,7 +44,7 @@
 	<div class="text-center text-light">
 		<a class="text-center text-light" href="#">National Transaction Coporation</a><span> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</span>
 		<p class="h6"> ©
-		All Right Reserved.Sunlimetech</p>
+			All Right Reserved.Sunlimetech</p>
 	</div><!-- .site-info -->
 </footer><!-- #colophon -->
 

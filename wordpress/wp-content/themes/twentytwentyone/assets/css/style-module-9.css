@@ -63,3 +63,9 @@
     color: #2a6496;
     text-decoration: underline;
 }
+
+.has-background-white .site .module-9 a:focus:not(.wp-block-button__link):not(.wp-block-file__button) {
+    background: none;
+    color: #2a6496;
+    text-decoration: underline;
+}

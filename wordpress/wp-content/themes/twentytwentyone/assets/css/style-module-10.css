@@ -1,8 +1,5 @@
 :root {
-    --white: #fff;
-    --bg-recentpost: #56bdbf;
-    --bg-recentpost-header: #4bb4b6;
-    --bg-recentpost-button: #62c6c8;
+
 }
 
 .module-10 {
@@ -22,10 +19,16 @@
     text-decoration: underline;
 }
 
+.has-background-white .site .module-10 a:focus:not(.wp-block-button__link):not(.wp-block-file__button) {
+    background: none;
+    color: var(--module-10-white);
+    text-decoration: underline;
+}
+
 .module-10 ul {
     padding: 20px 30px;
-    background-color: var(--bg-recentpost);
-    color: var(--white);
+    background-color: var(--module-10-bg-recentpost);
+    color: var(--module-10-white);
     margin-bottom: 0;
 }
 
@@ -39,7 +42,7 @@
 }
 
 .module-10 a {
-    color: var(--white);
+    color: var(--module-10-white);
     text-decoration: none;
     font-weight: 300;
 }
@@ -68,7 +71,7 @@
 
 .module-10 .button-see-all {
     font-family: 'Open Sans', sans-serif;
-    background-color: var(--bg-recentpost-button);
+    background-color: var(--module-10-bg-recentpost-button);
     display: block;
     padding: 10px;
     text-align: center;

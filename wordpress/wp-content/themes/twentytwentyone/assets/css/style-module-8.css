@@ -3,14 +3,6 @@
     border-radius: var(--bs-border-radius);
 }
 
-.comment-respond {
-    display: none;
-}
-
-.module-8 .comment-respond,
-.comment-guest .comment-respond {
-    display: block;
-}
 
 .has-background-white .site .module-8 :focus:not(.wp-block-button__link):not(.wp-block-file__button) {
     background-color: #fff;

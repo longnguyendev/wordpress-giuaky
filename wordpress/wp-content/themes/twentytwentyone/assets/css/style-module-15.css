@@ -1,9 +1,3 @@
-:root {
-  --color-post-title: #007bff;
-  --color-post-title-hover: #0056b3;
-  --color-line-time-line: #d4d9df;
-}
-
 .module-15 ul.timeline {
   list-style-type: none;
   position: relative;
@@ -12,12 +6,12 @@
 }
 
 .module-15 .float-left {
-  color: var(--color-post-title);
+  color: var(--module-15-color-post-title);
   font-weight: 500;
 }
 
 .module-15 .float-right {
-  color: var(--color-post-title);
+  color: var(--module-15-color-post-title);
   font-weight: 500;
   float: right !important;
 }
@@ -30,7 +24,7 @@
 }
 .module-15 a:hover {
   text-decoration: underline;
-  color: var(--color-post-title-hover);
+  color: var(--module-15-color-post-title-hover);
 }
 
 .module-15 li {
@@ -66,7 +60,7 @@
   left: 29px;
   width: 2px;
   height: 100%;
-  background: var(--color-line-time-line);
+  background: var(--module-15-color-line-time-line);
   z-index: 99;
   box-sizing: border-box;
 }
