@@ -34,12 +34,15 @@ get_header(); ?>
 						$title = get_the_title();
 						$content = wp_trim_words(get_the_content(), 30); // Giới hạn nội dung 30 từ
 						$thumbnail = get_the_post_thumbnail(get_the_ID()); // Lấy ảnh đại diện nhỏ
+						$page_link = get_permalink(); // Lấy đường dẫn đến trang
 
 						// Hiển thị thông tin trang
+						echo '<a href="' . $page_link . '">';
 						echo '<h4>' . $title . '</h4>';
 						echo '<hr>';
 						echo $thumbnail; // Hiển thị ảnh đại diện
 						echo '<p>' . $content . '</p>';
+						echo '</a>';
 					}
 					wp_reset_postdata();
 				}
