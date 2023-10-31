@@ -1,25 +1,44 @@
-.module-5 .post-title .title-content {
-    color: var(--module-5-color-post-title);
+.module-5 .post-title .title-content{
+    color: #428bca;
     text-decoration: none;
     text-transform: uppercase;
     font-family: 'Open Sans Condensed', sans-serif;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 15px;
+}
+.module-5 .post-title .title-content:hover{
+    text-decoration: underline;
+    color: #2a6496;
 }
 
-.module-5 .post-title a {
-    text-decoration: none;
+.module-5 .post-title .content a{
+    color: #428bca;
 }
-
+.module-5 .post-title .content a:hover{
+    text-decoration: underline;
+    color: #2a6496;
+}
 .module-5 .post-crated-at {
     border-right: 2px solid #999;
     font-family: 'Prata', serif;
     font-size: 1em;
     line-height: 1em;
 }
+.module-5 .post-crated-at .daymonth {
+    margin-top: 12px;
+}
 
 .module-5 .post-crated-at span h1 {
     font-family: 'Prata', serif;
+    font-size: 1.75em;
+    line-height: 1em;
+}
+.module-5 .post-crated-at span p {
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    color: #333;
+    font-size: 0.7em;
+    font-weight: 100;
 }
 
 .module-5 .post-card {
