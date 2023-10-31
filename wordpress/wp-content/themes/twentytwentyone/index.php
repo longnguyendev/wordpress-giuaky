@@ -19,20 +19,19 @@ get_header(); ?>
 <div class="container-fluid">
 	<div class="favorite-parent">
 		<div class="favorite"></div>
-		<div>Bài viết yêu thích</div>
+		<div>Bài viết mới nhất</div>
 	</div>
 	
 	<div class="row ">
 		<div class="col-md-4 module-11">
 				<div class="row edit-view">
-					<!-- <hr style="width:30%; height:1px;margin-left:0; background: black; margin-top: 0;"> -->
 					<?php $query = new WP_Query(array('orderby' => 'date', 'posts_per_page' => 8));
 					if ($query->have_posts()) {
 						$count = 1;
 						while ($query->have_posts()) {
 							$query->the_post();
 							$title = get_the_title();
-							// Hiển thị thông tin trang
+							// Hiển thị thông tin bài viết
 							echo '<div class="col-6">';
 							echo '<div class="row border-top border-bot">';
 							echo '<div class="col-2 post-count">' . $count++ . '</div>';
