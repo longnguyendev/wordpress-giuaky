@@ -143,8 +143,8 @@ get_header(); ?>
 					<a class="float-left" target="_blank" href="<?php echo get_permalink($post['ID']) ?>"><?php echo $post['post_title']  ?></a>
 					<a class="float-right" href="#"><?php echo date('d M, Y', strtotime($post['post_date'])) ?></a>
 					<?php
-					if (strlen($post['post_content']) > 251) { ?>
-						<p><?php echo substr($post['post_content'], 0, 251) ?>... </p>
+					if (strlen($post['post_content']) > 55) { ?>
+						<p><?php echo wp_trim_words($post['post_content'], 55, '') ?>... </p>
 					<?php } else { ?>
 						<p><?php echo $post['post_content'] ?></p>
 					<?php
