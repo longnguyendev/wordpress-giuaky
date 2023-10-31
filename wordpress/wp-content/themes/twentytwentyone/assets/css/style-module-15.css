@@ -36,6 +36,7 @@
 .module-15 p {
   display: block;
   margin-bottom: 0;
+  word-wrap: break-word;
 }
 
 .module-15 .post-card::before {

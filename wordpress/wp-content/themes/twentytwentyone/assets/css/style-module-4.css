@@ -26,6 +26,10 @@
   font-weight: 700;
 }
 
+.module-4 span {
+  word-wrap: break-word;
+}
+
 .module-4 .page-header.alignwide {
   border: none;
   margin-bottom: 0;
