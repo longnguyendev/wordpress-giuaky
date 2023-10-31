@@ -5,7 +5,12 @@
 .module-3 p {
     color: white;
 }
-
+.module-3 .wp-block-heading{
+    padding-left: 10px;
+    border-left: 3px solid #fff;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+}
 .module-3 .avatar.avatar-48.photo.wp-block-latest-comments__comment-avatar {
     display: none;
 }
