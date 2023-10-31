@@ -13,6 +13,13 @@
 get_header(); ?>
 
 <div class="container-fluid">
+	<?php
+	if (!have_posts()) {
+	?>
+		<div class="module-4">
+			<?php get_template_part('template-parts/content/content-none'); ?>
+		</div>
+	<?php  } ?>
 	<div class="row">
 		<div class="col-md-3">
 			<div class="module-13">
@@ -84,7 +91,7 @@ get_header(); ?>
 					?>
 				</div> -->
 				<!-- .search-result-count -->
-				<?php
+			<?php
 				// Start the Loop.
 				while (have_posts()) {
 					the_post();
@@ -101,11 +108,6 @@ get_header(); ?>
 				twenty_twenty_one_the_posts_navigation();
 
 				// If no content, include the "No posts found" template.
-			} else { ?>
-				<div class="module-4">
-					<?php get_template_part('template-parts/content/content-none'); ?>
-				</div>
-			<?php
 			} ?>
 		</div>
 		<div class="col-md-3">

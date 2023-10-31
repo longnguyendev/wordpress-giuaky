@@ -29,7 +29,10 @@
   font-weight: 500;
 }
 
-.module-12 .wp-block-latest-comments .wp-block-latest-comments__comment-excerpt p {
+.module-12
+  .wp-block-latest-comments
+  .wp-block-latest-comments__comment-excerpt
+  p {
   position: relative;
   left: -48px;
   color: var(--module-12-text-color);
@@ -37,4 +40,8 @@
 
 .module-12 .wp-block-latest-comments .wp-block-latest-comments__comment {
   margin: 0;
+}
+
+.module-12 p {
+  word-wrap: break-word;
 }
