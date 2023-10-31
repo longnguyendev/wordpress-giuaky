@@ -34,11 +34,11 @@
 					if (count($content) >= 15) {
 						echo '<p class="content">' . wp_trim_words(get_the_content(), 15, '') . '<a href="' . get_permalink() . '"> [...]</a>' . '</p>'; // Nội dung bài viết
 					} else {
-						echo '<p class="content">' . get_the_content() . '</p>'; // Nội dung bài viết
+						echo '<p class="content">' . get_the_content() . '</p>';
 					}
 				echo '</h4>';
 			echo '</div>';
 		echo '</div>';
 		?>
 	</div>
-</article><!-- #post-${ID} -->
+</article>
