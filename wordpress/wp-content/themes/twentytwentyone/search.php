@@ -16,7 +16,7 @@ get_header(); ?>
 	<?php
 	if (!have_posts()) {
 	?>
-		<div class="module-4">
+		<div class="module-4 py-4">
 			<?php get_template_part('template-parts/content/content-none'); ?>
 		</div>
 	<?php  } ?>
@@ -144,7 +144,7 @@ get_header(); ?>
 					<a class="float-right" href="#"><?php echo date('d M, Y', strtotime($post['post_date'])) ?></a>
 					<?php
 					if (strlen($post['post_content']) > 55) { ?>
-						<p><?php echo wp_trim_words($post['post_content'], 55, '') ?>... </p>
+						<p><?php echo wp_trim_words($post['post_content'], 55, '...') ?></p>
 					<?php } else { ?>
 						<p><?php echo $post['post_content'] ?></p>
 					<?php

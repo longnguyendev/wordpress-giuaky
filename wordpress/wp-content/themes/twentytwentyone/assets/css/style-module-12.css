@@ -45,3 +45,7 @@
 .module-12 p {
   word-wrap: break-word;
 }
+
+.module-12 h1.wp-block-heading {
+  word-wrap: break-word;
+}
