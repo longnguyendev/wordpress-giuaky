@@ -8,9 +8,11 @@
   --module-1-border-input: 1px solid #ccc;
   --module-1-button-hover: #e6e6e6;
   --module-1-button-border: #adadad;
-  --module-1-shadow-search: inset 0 1px 1px rgba(0, 0, 0, .075);
-  --module-1-transition-search: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  --module-1-shadow-search-focus: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+  --module-1-shadow-search: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  --module-1-transition-search: border-color ease-in-out 0.15s,
+    box-shadow ease-in-out 0.15s;
+  --module-1-shadow-search-focus: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
   --module-2-color-post-title: #52a7ff;
   --module-3-footer-bg: #007b5e;
   --module-4-color-button-search: #28a745;
@@ -25,7 +27,9 @@
   --module-15-color-line-time-line: #d4d9df;
 }
 
-a, a:hover, a:focus {
+a,
+a:hover,
+a:focus {
   word-break: break-word !important;
   text-decoration: none;
   outline: none;
@@ -36,8 +40,14 @@ a, a:hover, a:focus {
   outline: none;
 }
 
-.has-background-white .site a:focus:not(.wp-block-button__link):not(.wp-block-file__button) {
+.has-background-white
+  .site
+  a:focus:not(.wp-block-button__link):not(.wp-block-file__button) {
   background: none;
   color: unset;
   text-decoration: underline;
+}
+
+p {
+  word-wrap: break-word !important;
 }
